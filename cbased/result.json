@@ -1,0 +1,17 @@
+{
+  "args": {}, 
+  "data": "{ID: 1938,Member: -8411096461543279592}", 
+  "files": {}, 
+  "form": {}, 
+  "headers": {
+    "Accept": "*/*", 
+    "Content-Length": "39", 
+    "Content-Type": "application/json; charset=utf-8", 
+    "Host": "httpbin.org", 
+    "User-Agent": "curl/7.88.1", 
+    "X-Amzn-Trace-Id": "Root=1-65681215-566d623a187b4345137a95a0"
+  }, 
+  "json": null, 
+  "origin": "188.44.42.48", 
+  "url": "https://httpbin.org/post"
+}

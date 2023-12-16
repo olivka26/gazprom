@@ -1,0 +1,22 @@
+#/bin/bash
+m=0
+n=1
+i=0
+echo "sqlite3 database.db 'CREATE TABLE FIBONACCI(ID BIGINT PRIMARY KEY NOT NULL, MEMBER BIGINT NOT NULL);'"
+while true
+do
+echo "Fib $i : $m"
+echo {"ID": "$i","Member": "$m"} > member.json
+curl -X POST "https://httpbin.org/post" -H "Content-Type: application/json; charset=utf-8" -d @member.json -o result.json
+echo "sqlite3 database.db 'INSERT INTO FIBONACCI VALUES($i,$m)'"
+i=$(($i+1))
+m=$(($m+$n))
+echo "Fib $i : $n"
+sleep 1
+echo {"ID": "$i","Member": "$n"} > member.json
+curl -X POST "https://httpbin.org/post" -H "Content-Type: application/json; charset=utf-8" -d @member.json -o result.json
+echo "sqlite3 database.db 'INSERT INTO FIBONACCI VALUES($i,$n)'"
+i=$(($i+1))
+n=$(($m+$n))
+sleep 1
+done
